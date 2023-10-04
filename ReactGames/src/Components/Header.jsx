@@ -20,17 +20,17 @@ function Header() {
             <input 
             type='text' 
             placeholder='Search Games' 
-            className='px-2 bg-transparent dark:bg-cyan-500 outline-none' 
+            className='px-2 bg-transparent outline-none' 
             />
         </div>
         <div>
             {theme =='light' ? 
             <HiMoon 
             className='text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' 
-            onClick={() => setTheme('dark')} /> : 
+            onClick={() => {setTheme('dark');localStorage.setItem('theme', 'dark')}} /> : 
             <HiSun 
             className='text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' 
-            onClick={() => setTheme('light')} />}
+            onClick={() => {setTheme('light');localStorage.setItem('theme', 'light')}} />}
         </div>
     </div>
   )
