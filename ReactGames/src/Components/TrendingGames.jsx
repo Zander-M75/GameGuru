@@ -7,7 +7,7 @@ function TrendingGames({gameList}) {
     },[])
 
   return (
-    <div className='mt-5'>
+    <div className='mt-5 hidden md:block'>
         <h2 className='font-bold text-[30px] dark:text-white'>Trending Games</h2>
     <div className='hidden md:grid md:grid-cols-3 gap-4 mt-5 lg:grid-cols-4'>
         {gameList.map((item, index) => index < 4 && (
