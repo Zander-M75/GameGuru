@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <div className='flex items-center p-3'>
-        <img src={logo} width={90} height={90} className='rounded-full' />
+        <img src={logo} width={130} height={130} className='rounded-full' />
         <div className='flex bg-slate-200 p-2 w-full mx-5 rounded-full items-center'>
             <HiOutlineMagnifyingGlass />
             <input 

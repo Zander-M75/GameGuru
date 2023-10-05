@@ -16,4 +16,4 @@ function Banner({gameBanner}) {
   )
 }
 
-export default Banner
+export default Banner;
