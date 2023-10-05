@@ -10,36 +10,40 @@ function Home() {
 
   const [allGameList, setAllGameList] = useState();
   const [gameListByGenre, setGameListByGenre] = useState([]);
+  const [selectedGenreName, setSelectedGenreName] = useState('Action')
 
   useEffect(() => {
     getAllGamesList();
-   getGameListByGenreId();
+   getGameListByGenreId(4);
   }, [])
 
   const getAllGamesList = () => {
     GlobalApi.getAllGames.then((resp) => {
       setAllGameList(resp.data.results)
-      setGameListByGenre(resp.data.results)
+      
     })
   }
 
   const getGameListByGenreId = (id) => {
-    GlobalApi.getGameListByGenreId().then((resp) => {
+    GlobalApi.getGameListByGenreId(id).then((resp) => {
       console.log("Game list by genre id", resp.data.results)
+      setGameListByGenre(resp.data.results)
     })
   }
 
   return (
     <div className='grid grid-cols-4 px-8'>
         <div className='h-full hidden md:block'>
-            <GenreList />
+            <GenreList genreId={(genreId)=>getGameListByGenreId(genreId)}
+            selectedGenreName={(name)=>setSelectedGenreName(name)}
+            />
         </div>
         <div className='col-span-4 md:col-span-3'>
         { allGameList?.length > 0 && gameListByGenre.length>0 ?   
         <div>
         <Banner gameBanner={allGameList[0]} /> 
         <TrendingGames gameList={allGameList} />
-        <GamesByGenreId gameList={gameListByGenre}/>
+        <GamesByGenreId gameList={gameListByGenre} selectedGenreName={selectedGenreName}/>
         </div>
         : null }
         </div>

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import GlobalApi from '../Services/GlobalApi'
 
-function GenreList() {
+function GenreList({genreId, selectedGenreName}) {
 
     const [genreList, setGenreList] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0)
@@ -25,7 +25,7 @@ function GenreList() {
       { genreList.map((item, index) => (
         
         <div 
-        onClick={() =>setActiveIndex(index)}
+        onClick={() => {setActiveIndex(index);genreId(item.id);selectedGenreName(item.name)}}
         className={`flex gap-2 items-center mb-2 cursor-pointer group hover:bg-gray-300 p-2 rounded-lg hover:dark:bg-gray-600 ${activeIndex == index ? "bg-gray-300 dark:bg-gray-600" : null}`}>
           
           <img src={item.image_background} 

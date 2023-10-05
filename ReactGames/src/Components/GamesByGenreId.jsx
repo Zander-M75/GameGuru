@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 
 
-function GamesByGenreId({gameList}) {
+function GamesByGenreId({gameList, selectedGenreName}) {
 useEffect(() => {
     console.log(gameList)
 }, [])
 
   return (
     <div>
-        <h2 className='font-bold text-[30px] dark:text-white mt-5'>Popular Games By Genre</h2>
+        <h2 className='font-bold text-[30px] dark:text-white mt-5'>Popular <span className='text-red-500'>{selectedGenreName}</span> Games</h2>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
         {gameList.map((item) => (
             
