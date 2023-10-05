@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 function Banner({gameBanner}) {
     useEffect(() => {
-        console.log("game Banner", gameBanner)
+    
     })
   return (
     <div className='relative'>
