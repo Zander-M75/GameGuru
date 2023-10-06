@@ -17,7 +17,7 @@ function GenreList({genreId, selectedGenreName}) {
     }
 
   return (
-    <div>
+    <div className='mr-10'>
       <h2 className='text-[30px] font-bold dark:text-white'>
         Genre
         </h2>
